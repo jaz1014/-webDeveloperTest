@@ -16,7 +16,9 @@ include 'conection.php';
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>..:: Store ::..</title>
-  
+	
+	<link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+	
     <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<!-- Latest jQuery form server -->
@@ -26,7 +28,8 @@ include 'conection.php';
 	<script src="js/bootstrap.min.js"></script>
 	
     <!-- Custom CSS -->
-
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -61,17 +64,7 @@ include 'conection.php';
 		}
 	</script>
 </head>
-<style>
-.search_button{
-	color: #fff;
-    background: #2196F3;
-    border: 1px solid #2196F3;
-    border-radius: 0px 5px 5px 0px;
-}
-th{
-	color:#2196f3;
-}
-</style>
+
 <body>	
 	<div class="container">
 		<div class="row">
@@ -133,28 +126,31 @@ th{
 						<th colspan= "2" >Actions</th>
 					</tr>
 					<tr id="add_product" class="collapse">
-						<form name="frmProducts" role="form" method="" action="" onsubmit="insertProduct(); return false">
-							<td colspan="2"><input type="text" name="name" id="" maxlength="150" value=""  class="form-control" placeholder="Name"/></td>
-							<td><input type="text" name="price" id="" maxlength="150" value=""  class="form-control" placeholder="Price "/></td>			
-							<td><input type="text" name="description" id="" maxlength="150" value=""  class="form-control" placeholder="Description "/></td>
-							<td colspan="2">
-								<select name="category" id="" name="category" class="form-control" >
-									<option value="">Category </option>
-									<?php
-									foreach($categories as $cat){
-									?>
-										<option value="<?php echo $cat["id"]?>"><?php echo $cat["name"]?></option>
-									<?php 
-									}
-									?>
-								</select>
-							</td>
-							<td colspan="2">
-								<button type="submit" class="btn btn-success btn-md" >
-									<span class="glyphicon glyphicon-ok " aria-hidden="true"></span> Insert
-								</button>
-							</td>
-						</form>
+						<td colspan= "8">
+							<form name="frmProducts" class="form-inline"id="insertNew" role="form" method="" action="" onsubmit="insertProduct(); return false">
+								
+								<input type="text" name="name" id="" maxlength="150" value=""  class="form-control" placeholder="Name"/>
+								<input type="text" name="price" id="" maxlength="150" value=""  class="form-control" placeholder="Price "/>			
+								<input type="text" name="description" id="" maxlength="150" value=""  class="form-control" placeholder="Description "/>
+								
+									<select name="category" id="" name="category" class="form-control" >
+										<option value="">Category </option>
+										<?php
+										foreach($categories as $cat){
+										?>
+											<option value="<?php echo $cat["id"]?>"><?php echo $cat["name"]?></option>
+										<?php 
+										}
+										?>
+									</select>
+								
+								
+									<button type="submit" class="btn btn-success btn-md" >
+										<span class="glyphicon glyphicon-ok " aria-hidden="true"></span> Insert
+									</button>
+								
+							</form>
+						</td>
 					</tr>
 				<thead>	
 				<tbody id="resultado" >
