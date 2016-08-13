@@ -1,0 +1,22 @@
+.filter{
+	margin:50px 0 ;
+}
+.search_button{
+	color: #fff;
+    background: #2196F3;
+    border: 1px solid #2196F3;
+    border-radius: 0px 5px 5px 0px;
+}
+.table{
+	border-top: 3px solid #2196f3;
+}
+th{
+	color:#2196f3;
+}
+#insertNew{
+	border: 1px solid #b0e8b0;
+	border-radius: 5px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(140, 233, 102, 0.68);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(140, 233, 102, 0.68);
+    padding: 20px;
+}
