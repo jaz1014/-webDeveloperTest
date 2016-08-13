@@ -92,19 +92,7 @@ include 'conection.php';
 			</div>
 
 			
-			<div class="form-group">
-				<button type="button" class="btn btn-danger btn-sm" onclick="multiDeleteProduct()">
-				  <span class="glyphicon glyphicon-remove " aria-hidden="true"></span> Delete Selected
-				</button>
-			</div>
-			
-			<div class="form-group">
-				<div class="input-group">
-					<button type="button" class="btn btn-info btn-sm">
-					  <span class="glyphicon glyphicon-save " aria-hidden="true"></span> Export CSV
-					</button>
-				</div>
-			</div>
+		
 			
 			<div class="form-group">
 				<button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#add_product">
@@ -117,7 +105,7 @@ include 'conection.php';
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th width="1%"></th>
+					
 						<th>Name</th>
 						<th>Price</th>
 						<th>Description</th>
@@ -126,35 +114,41 @@ include 'conection.php';
 						<th colspan= "2" >Actions</th>
 					</tr>
 					<tr id="add_product" class="collapse">
-						<td colspan= "8">
-							<form name="frmProducts" class="form-inline"id="insertNew" role="form" method="" action="" onsubmit="insertProduct(); return false">
-								
-								<input type="text" name="name" id="" maxlength="150" value=""  class="form-control" placeholder="Name"/>
-								<input type="text" name="price" id="" maxlength="150" value=""  class="form-control" placeholder="Price "/>			
-								<input type="text" name="description" id="" maxlength="150" value=""  class="form-control" placeholder="Description "/>
-								
-									<select name="category" id="" name="category" class="form-control" >
-										<option value="">Category </option>
-										<?php
-										foreach($categories as $cat){
-										?>
-											<option value="<?php echo $cat["id"]?>"><?php echo $cat["name"]?></option>
-										<?php 
-										}
-										?>
-									</select>
-								
-								
-									<button type="submit" class="btn btn-success btn-md" >
-										<span class="glyphicon glyphicon-ok " aria-hidden="true"></span> Insert
-									</button>
-								
+						<td colspan= "7">
+							
+							<form name="frmProducts" class="form-inline" id="frmProducts" role="form" method="" action="" onsubmit="insertProduct(); return false">
+								<table class="table-condensed" >
+									<tr td colspan= "7">
+										<th>Add New</th>
+									</tr>
+									<tr>
+										<td colspan= "2" ><input type="text" name="name" id="" maxlength="150" value=""  class="form-control" placeholder="Name" required /></td>
+										<td ><input type="number" name="price" pattern="[0-9]+([\.,][0-9]+)?" step="0.01"  value=""  class="form-control" placeholder="Price" required></td>
+										<td><textarea rows="1" cols="60" type="text" placeholder="Description" name="description" id="" maxlength="200" value="" class="form-control" required></textarea>											</td>
+										<td>
+											<select name="category" id="" name="category" class="form-control" placeholder="Category" required  >
+												<option value=""></option>
+												<?php
+												foreach($categories as $cat){
+												?>
+													<option value="<?php echo $cat["id"]?>"><?php echo $cat["name"]?></option>
+												<?php 
+												}
+												?>
+											</select>
+										</td>
+										<td colspan= "2">
+											<button type="submit" class="btn btn-success btn-md" >
+												<span class="glyphicon glyphicon-ok " aria-hidden="true"></span> Insert
+											</button>
+										</td>
+									</tr>
+								</table>
 							</form>
 						</td>
 					</tr>
 				<thead>	
-				<tbody id="resultado" >
-								
+				<tbody id="resultado" >					
 					<?php include 'product_list.php'; ?>			
 				</tbody>
 			</table>
@@ -173,7 +167,7 @@ include 'conection.php';
 						<input type="hidden" name="id"  value=""  class="form-control" />
 						<div class="form-group">
 							<label for="name">Name</label>
-							<input type="text" name="name"  maxlength="150" value=""  class="form-control" />
+							<input type="text" name="name"  maxlength="250" value=""  class="form-control" />
 						</div>
 						
 						<div class="form-group">

@@ -1,14 +1,14 @@
+
 <?php			
 	$qryProd  = "SELECT p.id, p.name, p.description, p.price, c.name as category, p.created, p.category_id  ";
-	$qryProd .= "FROM products p JOIN category c on category_id = c.id ";
+	$qryProd .= "FROM products p JOIN category c on category_id = c.id ORDER BY id desc";
 	$stmt = $con->prepare($qryProd);
 	$resProd = $stmt->execute(); 
 	$products = $stmt->fetchAll();
-	
 	foreach($products as $row){	
 ?>								
 	<tr>
-		<td><input type="checkbox" name="delete[]" value="<?php echo $row["id"] ?>"  ></td>
+		
 		<td><?php echo $row["name"] ?></td>
 		<td>$<?php echo $row["price"] ?></td>
 		<td><?php echo $row["description"] ?></td>

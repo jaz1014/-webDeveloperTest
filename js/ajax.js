@@ -22,7 +22,9 @@
 		name = document.frmProducts.name.value;
 		price = document.frmProducts.price.value;
 		category = document.frmProducts.category.value;
-		description = document.frmProducts.description.value;		
+		description = document.frmProducts.description.value;	
+
+		
 		ajax=objetoAjax();
 		ajax.open("POST", "insert_product.php", true);
 		ajax.onreadystatechange=function(){
@@ -53,6 +55,7 @@
 		}
 		ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		ajax.send("id="+id+"&name="+name+"&price="+price+"&category="+category+"&description="+description);
+		location.reload();
 	}
 
 	function deleteProduct(id){		
@@ -87,17 +90,3 @@
 		ajax.send("q="+n);
 	}
 	
-	function multiDeleteProduct(){		
-		
-		divResultado = document.getElementById('resultado');
-		
-		ajax=objetoAjax();
-		ajax.open("POST", "delete_product.php", true);
-		ajax.onreadystatechange=function(){
-			if(ajax.readyState == 4){				
-				divResultado.innerHTML = ajax.responseText 
-			}
-		}
-		ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		ajax.send("id="+id);
-	}
